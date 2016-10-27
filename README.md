@@ -36,6 +36,9 @@ DispatchQueue.global(qos: .background).async { [weak self]
   }
 }
 ```
+## Swift2 GCD cheatsheet
+
+![](gcd-cheatsheet.png)
 
 ## get main queue
 swift2 version:
