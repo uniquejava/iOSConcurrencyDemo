@@ -26,6 +26,12 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func didClickOnStart(_ sender: AnyObject) {
+    }
+    
+    @IBAction func didClickOnCancel(_ sender: AnyObject) {
+    }
 
     @IBAction func sliderValueChanged(_ sender: UISlider) {
         sliderValueLabel.text = "\(sender.value * 100.0)"
