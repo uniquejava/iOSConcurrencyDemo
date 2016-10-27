@@ -38,7 +38,10 @@ class ViewController: UIViewController {
     
     @IBAction func didClickOnStart(_ sender: AnyObject) {
         //let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) // old
-        let queue = DispatchQueue.global(qos: .default) // global concurrent queue
+        //let queue = DispatchQueue.global(qos: .default) // global concurrent queue
+        
+        //let queue = dispatch_queue_create("com.cyper.xxx", DISPATCH_QUEUE_SERIAL)
+        let queue = DispatchQueue(label: "com.cyper.xxx", qos: .userInitiated)
         
         queue.async {
             let img1 = Downloader.downloadImageWithURL(imageURLs[0])
