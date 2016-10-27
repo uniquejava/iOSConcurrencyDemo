@@ -27,6 +27,9 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
+        sliderValueLabel.text = "\(sender.value * 100.0)"
+    }
 
 }
 
