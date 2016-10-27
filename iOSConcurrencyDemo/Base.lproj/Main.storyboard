@@ -1,26 +1,72 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="iOSConcurrencyDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q9A-qn-uXw"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qR3-4x-LbH"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ovx-hm-pxf"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I9k-7Q-Avm"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="g24-cY-5mK"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AIf-gd-00x">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="I9k-7Q-Avm" secondAttribute="trailing" id="1As-cQ-EhT"/>
+                            <constraint firstItem="g24-cY-5mK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3GZ-74-pd9"/>
+                            <constraint firstItem="Q9A-qn-uXw" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1/3" id="77x-dQ-69a"/>
+                            <constraint firstItem="AIf-gd-00x" firstAttribute="centerX" secondItem="g24-cY-5mK" secondAttribute="centerX" id="81f-hb-u83"/>
+                            <constraint firstItem="g24-cY-5mK" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="2/3" id="EjN-2t-9be"/>
+                            <constraint firstAttribute="bottom" secondItem="g24-cY-5mK" secondAttribute="bottom" constant="14" id="HOB-FJ-j8N"/>
+                            <constraint firstItem="ovx-hm-pxf" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1/3" id="L0z-tS-q8s"/>
+                            <constraint firstItem="ovx-hm-pxf" firstAttribute="leading" secondItem="Q9A-qn-uXw" secondAttribute="leading" id="PNZ-2Z-I5x"/>
+                            <constraint firstItem="ovx-hm-pxf" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1/2" id="R58-A5-0Bt"/>
+                            <constraint firstItem="ovx-hm-pxf" firstAttribute="top" secondItem="Q9A-qn-uXw" secondAttribute="bottom" id="TaA-GY-kGV"/>
+                            <constraint firstAttribute="trailing" secondItem="qR3-4x-LbH" secondAttribute="trailing" id="XgB-Ke-ceX"/>
+                            <constraint firstItem="qR3-4x-LbH" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1/3" id="ZVg-gw-jIN"/>
+                            <constraint firstItem="qR3-4x-LbH" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1/2" id="ad5-zy-nVd"/>
+                            <constraint firstItem="I9k-7Q-Avm" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1/2" id="bhZ-y9-DIX"/>
+                            <constraint firstItem="Q9A-qn-uXw" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="1/2" id="bpb-Tp-Sz1"/>
+                            <constraint firstItem="Q9A-qn-uXw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="gjz-Ck-nMi"/>
+                            <constraint firstItem="Q9A-qn-uXw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="lEg-gv-CFL"/>
+                            <constraint firstItem="g24-cY-5mK" firstAttribute="top" secondItem="AIf-gd-00x" secondAttribute="bottom" constant="14" id="loz-Ae-17m"/>
+                            <constraint firstItem="qR3-4x-LbH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pLY-cy-afW"/>
+                            <constraint firstItem="I9k-7Q-Avm" firstAttribute="top" secondItem="ovx-hm-pxf" secondAttribute="top" id="qP0-sT-5sw"/>
+                            <constraint firstItem="I9k-7Q-Avm" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1/3" id="xgb-6V-hfR"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="imageView1" destination="Q9A-qn-uXw" id="Lsw-6p-tf2"/>
+                        <outlet property="imageView2" destination="qR3-4x-LbH" id="Q5p-Hz-TT5"/>
+                        <outlet property="imageView3" destination="ovx-hm-pxf" id="2Qt-4g-ldO"/>
+                        <outlet property="imageView4" destination="I9k-7Q-Avm" id="iMM-q0-3PI"/>
+                        <outlet property="sliderValueLabel" destination="AIf-gd-00x" id="nz1-lE-eti"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="28" y="42.728635682158924"/>
         </scene>
     </scenes>
 </document>
