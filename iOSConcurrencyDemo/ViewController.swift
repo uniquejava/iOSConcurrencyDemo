@@ -37,7 +37,36 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didClickOnStart(_ sender: AnyObject) {
+        //let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) // old
+        let queue = DispatchQueue.global(qos: .default) // global concurrent queue
         
+        queue.async {
+            let img1 = Downloader.downloadImageWithURL(imageURLs[0])
+            DispatchQueue.main.async {
+                self.imageView1.image = img1
+            }
+        }
+        
+        queue.async {
+            let img2 = Downloader.downloadImageWithURL(imageURLs[1])
+            DispatchQueue.main.async {
+                self.imageView2.image = img2
+            }
+        }
+        
+        queue.async {
+            let img3 = Downloader.downloadImageWithURL(imageURLs[2])
+            DispatchQueue.main.async {
+                self.imageView3.image = img3
+            }
+        }
+        
+        queue.async {
+            let img4 = Downloader.downloadImageWithURL(imageURLs[3])
+            DispatchQueue.main.async {
+                self.imageView4.image = img4
+            }
+        }
     }
     
     @IBAction func didClickOnCancel(_ sender: AnyObject) {
