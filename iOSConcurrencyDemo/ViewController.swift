@@ -40,6 +40,58 @@ class ViewController: UIViewController {
     
     @IBAction func didClickOnStart(_ sender: AnyObject) {
         queue = OperationQueue()
+        
+        let op1 = BlockOperation {
+            let img1 = Downloader.downloadImageWithURL(imageURLs[0])
+            OperationQueue.main.addOperation({
+                self.imageView1.image = img1
+            })
+        }
+        
+        op1.completionBlock = {
+            print("Operation 1 completed, cancelled: \(op1.isCancelled)")
+        }
+        queue.addOperation(op1)
+        
+        let op2 = BlockOperation {
+            let img2 = Downloader.downloadImageWithURL(imageURLs[1])
+            OperationQueue.main.addOperation({
+                self.imageView2.image = img2
+            })
+        }
+        
+        op2.completionBlock = {
+            print("Operation 2 completed, cancelled: \(op2.isCancelled)")
+        }
+        op2.addDependency(op1)
+        queue.addOperation(op2)
+        
+        
+        let op3 = BlockOperation {
+            let img3 = Downloader.downloadImageWithURL(imageURLs[2])
+            OperationQueue.main.addOperation({
+                self.imageView3.image = img3
+            })
+        }
+        op3.addDependency(op2)
+        op3.completionBlock = {
+            print("Operation 3 completed, cancelled: \(op3.isCancelled)")
+        }
+        queue.addOperation(op3)
+        
+        let op4 = BlockOperation {
+            let img4 = Downloader.downloadImageWithURL(imageURLs[3])
+            OperationQueue.main.addOperation({
+                self.imageView4.image = img4
+            })
+        }
+        
+        op4.completionBlock = {
+            print("Operation 4 completed, cancelled: \(op4.isCancelled)")
+        }
+        queue.addOperation(op4)
+        
+        /*
         queue.addOperation {
             let img1 = Downloader.downloadImageWithURL(imageURLs[0])
             OperationQueue.main.addOperation({
@@ -64,7 +116,8 @@ class ViewController: UIViewController {
                 self.imageView4.image = img4
             })
         }
-
+        */
+        
         //let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0) // old
         //let queue = DispatchQueue.global(qos: .default) // global concurrent queue
         
@@ -105,6 +158,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didClickOnCancel(_ sender: AnyObject) {
+        queue.cancelAllOperations()
     }
     
     @IBAction func sliderValueChanged(_ sender: UISlider) {
